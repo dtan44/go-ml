@@ -2,6 +2,7 @@ package neural
 
 import(
     "math"
+    "fmt"
 )
 
 // Activation functions
@@ -14,7 +15,8 @@ func Relu(input float64) float64 {
 }
 
 func Activate(input [][]float64, weights []float64) ([]float64, bool) {
-    if input == nil || weights == nil || (len(input[0]) != len(weights)) {
+    fmt.Println("TEST", input, weights, "\n")
+    if input == nil || weights == nil || (len(input[0])+1 != len(weights)) {
         return nil, false
     }
 
@@ -26,7 +28,9 @@ func Activate(input [][]float64, weights []float64) ([]float64, bool) {
         for j := 0; j < m_dim; j++ {
             val += input[i][j]*weights[j]
         }
-        res[i] = val
+        // Add bias weight to result
+        res[i] = val+weights[m_dim]
     }
+        fmt.Println("TEST", res, "\n")
     return res, true
 }

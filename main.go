@@ -17,4 +17,14 @@ func main() {
     var testNetwork neural.Network
     testNetwork.Init(2, 1, 2, 2)
     fmt.Println("Network", testNetwork, "\n")
+
+    var input [][]float64 = [][]float64{
+        []float64{1,0},
+        []float64{0,1},
+        []float64{1,1},
+        []float64{0,0}}
+
+    testNetwork.Data(input)
+    res := neural.ForwardPropogate(&testNetwork, "sigmoid")
+    fmt.Println("ForwardPropagate", res, testNetwork, "\n")
 }
