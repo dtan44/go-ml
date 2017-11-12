@@ -1,6 +1,4 @@
-package neural
-
-import "fmt"
+package neuralnetwork
 
 func ForwardPropogate(network *Network, transfer string) bool {
     // activate first layer

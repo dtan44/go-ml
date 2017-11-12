@@ -1,11 +1,11 @@
-package neural
+package neuralnetwork
 
 import(
     "math/rand"
 )
 
 type Neuron struct {
-    weights []float64
+    weights []float64 // input size + 1
     error float64
 }
 
@@ -18,4 +18,5 @@ func (neuron *Neuron) Init(size int)  {
         weights[i] = rand.Float64()
     }
     neuron.weights = weights
+    neuron.error = 0
 }

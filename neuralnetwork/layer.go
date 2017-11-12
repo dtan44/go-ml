@@ -1,4 +1,4 @@
-package neural
+package neuralnetwork
 
 type Layer struct {
     neurons []Neuron
@@ -15,4 +15,8 @@ func (layer *Layer) Init(num_neuron, neuron_size int) {
     // for i := 0; i < n_samples; i++ {
     //     lauyer.output = make([]float64, num_neuron)
     // }
+}
+
+func (layer *Layer) Output() [][]float64 {
+    return layer.output
 }
